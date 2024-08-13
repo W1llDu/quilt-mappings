@@ -14,6 +14,7 @@ CLASS net/minecraft/unmapped/C_scihbqqa net/minecraft/util/ArrayListDeque
 	METHOD get get (I)Ljava/lang/Object;
 		ARG 1 index
 	METHOD m_bzhecasd grow ()V
+	METHOD m_dnwfaduj reversed ()Lnet/minecraft/unmapped/C_bhbelvxt;
 	METHOD m_kramrkqi getStorageLength ()I
 	METHOD m_miiphuvo getAll ([Ljava/lang/Object;I)V
 		ARG 1 target
@@ -49,6 +50,40 @@ CLASS net/minecraft/unmapped/C_scihbqqa net/minecraft/util/ArrayListDeque
 		ARG 1 index
 		ARG 2 element
 	METHOD size size ()I
+	CLASS C_quaqpgvq ReversedListDeque
+		FIELD f_mxyliqou delegate Lnet/minecraft/unmapped/C_scihbqqa;
+		METHOD add add (ILjava/lang/Object;)V
+			ARG 1 i
+		METHOD clear clear ()V
+		METHOD contains contains (Ljava/lang/Object;)Z
+			ARG 1 object
+		METHOD descendingIterator descendingIterator ()Ljava/util/Iterator;
+		METHOD get get (I)Ljava/lang/Object;
+			ARG 1 i
+		METHOD indexOf indexOf (Ljava/lang/Object;)I
+			ARG 1 object
+		METHOD isEmpty isEmpty ()Z
+		METHOD iterator iterator ()Ljava/util/Iterator;
+		METHOD lastIndexOf lastIndexOf (Ljava/lang/Object;)I
+			ARG 1 object
+		METHOD m_ogwbibog reversedIndex (I)I
+			ARG 1 index
+		METHOD offerFirst offerFirst (Ljava/lang/Object;)Z
+		METHOD offerLast offerLast (Ljava/lang/Object;)Z
+		METHOD peekFirst peekFirst ()Ljava/lang/Object;
+		METHOD peekLast peekLast ()Ljava/lang/Object;
+		METHOD pollFirst pollFirst ()Ljava/lang/Object;
+		METHOD pollLast pollLast ()Ljava/lang/Object;
+		METHOD remove remove (I)Ljava/lang/Object;
+			ARG 1 i
+		METHOD removeFirstOccurrence removeFirstOccurrence (Ljava/lang/Object;)Z
+		METHOD removeLastOccurrence removeLastOccurrence (Ljava/lang/Object;)Z
+		METHOD set set (ILjava/lang/Object;)Ljava/lang/Object;
+			ARG 1 i
+		METHOD size size ()I
+		METHOD subList subList (II)Ljava/util/List;
+			ARG 1 i
+			ARG 2 j
 	CLASS C_zthenczz DescendingIterator
 		FIELD f_agakuvvk startingIndex I
 		METHOD hasNext hasNext ()Z

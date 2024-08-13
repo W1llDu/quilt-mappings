@@ -12,6 +12,7 @@ CLASS net/minecraft/unmapped/C_lvarvugc net/minecraft/util/Util
 	FIELD f_sxxdtide NANOS_PER_MILLI J
 	FIELD f_taiaktna DEFAULT_MAX_THREADS I
 	FIELD f_wikbskzx breakpointPauser Ljava/util/function/Consumer;
+	FIELD f_yqlgihwf DEFAULT_RETRIES I
 	FIELD f_zimcxepj MAIN_WORKER_EXECUTOR Ljava/util/concurrent/ExecutorService;
 	METHOD m_aidzvymm existenceCheckTask (Ljava/nio/file/Path;)Ljava/util/function/BooleanSupplier;
 		ARG 0 path
@@ -60,21 +61,31 @@ CLASS net/minecraft/unmapped/C_lvarvugc net/minecraft/util/Util
 	METHOD m_eyzgphxu isHorizontallySymmetric (IILjava/util/List;)Z
 		ARG 0 width
 		ARG 1 height
+		ARG 2 list
 	METHOD m_ffmggoki setBreakpointPauser (Ljava/util/function/Consumer;)V
 		ARG 0 breakpointPauser
 	METHOD m_fppetslt getJVMFlags ()Ljava/util/stream/Stream;
 	METHOD m_ftciccth toMap ()Ljava/util/stream/Collector;
 	METHOD m_fwdpfvho mapWith (Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
+	METHOD m_fzivvuhl anyOf (Ljava/util/List;)Ljava/util/function/Predicate;
+		ARG 0 predicates
 	METHOD m_gatbnpas getIoWorkerExecutor ()Ljava/util/concurrent/ExecutorService;
 	METHOD m_gdspwjqr memoize (Ljava/util/function/Function;)Ljava/util/function/Function;
 		ARG 0 function
 	METHOD m_gxlhducm getInnermostMessage (Ljava/lang/Throwable;)Ljava/lang/String;
 		ARG 0 t
 	METHOD m_hnnezaif getMainWorkerExecutor ()Ljava/util/concurrent/ExecutorService;
+	METHOD m_hskmeeaq (Ljava/lang/Object;)Z
+		ARG 0 object
 	METHOD m_iphxtmra backupAndReplace (Ljava/nio/file/Path;Ljava/nio/file/Path;Ljava/nio/file/Path;)V
 		ARG 0 current
 		ARG 1 newPath
 		ARG 2 backup
+	METHOD m_iyugiozm (Ljava/util/function/Consumer;Ljava/lang/String;Ljava/lang/String;)V
+		ARG 2 string
+	METHOD m_jpnvbfqy copyAndAppend (Ljava/util/List;Ljava/lang/Object;)Ljava/util/List;
+	METHOD m_jrafutuc (Ljava/util/function/Supplier;Ljava/util/function/Supplier;)Ljava/util/function/Supplier;
+		ARG 0 supplier
 	METHOD m_jsqsuqek (Ljava/lang/Runnable;Ljava/util/function/Supplier;)Ljava/lang/Runnable;
 		ARG 0 runnable
 		ARG 1 supplier
@@ -125,6 +136,8 @@ CLASS net/minecraft/unmapped/C_lvarvugc net/minecraft/util/Util
 		ARG 2 pool
 	METHOD m_oaamqqhk attemptShutdown (Ljava/util/concurrent/ExecutorService;)V
 		ARG 0 service
+	METHOD m_odlcpqdv (Ljava/util/List;)Ljava/util/concurrent/CompletableFuture;
+		ARG 0 futures
 	METHOD m_oigccakw startTimerHack ()V
 	METHOD m_onipypca (Ljava/util/function/Function;Ljava/util/function/Predicate;)Ljava/lang/Object;
 		ARG 0 function
@@ -135,6 +148,8 @@ CLASS net/minecraft/unmapped/C_lvarvugc net/minecraft/util/Util
 		ARG 0 typed
 		ARG 1 type
 		ARG 2 modifier
+	METHOD m_prdvozkz ([Ljava/util/function/Predicate;Ljava/lang/Object;)Z
+		ARG 1 object
 	METHOD m_qjjrrmre getMeasuringTimeMs ()J
 	METHOD m_qpdauvpg ifPresentOrElse (Ljava/util/Optional;Ljava/util/function/Consumer;Ljava/lang/Runnable;)Ljava/util/Optional;
 		ARG 0 optional
@@ -143,14 +158,20 @@ CLASS net/minecraft/unmapped/C_lvarvugc net/minecraft/util/Util
 	METHOD m_rjgutuoq (Ljava/nio/file/spi/FileSystemProvider;)Z
 		ARG 0 fileSystemProvider
 	METHOD m_rmfqlirq getOperatingSystem ()Lnet/minecraft/unmapped/C_lvarvugc$C_fqjbnqwz;
+	METHOD m_rtqfrpal ([Ljava/util/function/Predicate;Ljava/lang/Object;)Z
+		ARG 1 object
 	METHOD m_rucymwoq (Ljava/lang/String;)V
 		ARG 0 string
 	METHOD m_saniutqg getRandom (Ljava/util/List;Lnet/minecraft/unmapped/C_rlomrsco;)Ljava/lang/Object;
 		ARG 0 list
 		ARG 1 random
+	METHOD m_srbsdzew (Ljava/util/List;[Ljava/util/concurrent/CompletableFuture;Ljava/util/function/Consumer;Ljava/util/concurrent/CompletableFuture;)V
+		ARG 3 completableFuture
 	METHOD m_swonhjpb toShuffledList (Ljava/util/stream/IntStream;Lnet/minecraft/unmapped/C_rlomrsco;)Lit/unimi/dsi/fastutil/ints/IntArrayList;
 		ARG 0 values
 		ARG 1 random
+	METHOD m_szweipor (Ljava/lang/String;)Z
+		ARG 0 argument
 	METHOD m_teucbfzd deletionVerifyTask (Ljava/nio/file/Path;)Ljava/util/function/BooleanSupplier;
 		ARG 0 path
 	METHOD m_thwrzial readTypedOrThrow (Lcom/mojang/datafixers/types/Type;Lcom/mojang/serialization/Dynamic;Z)Lcom/mojang/datafixers/Typed;
@@ -166,6 +187,8 @@ CLASS net/minecraft/unmapped/C_lvarvugc net/minecraft/util/Util
 		ARG 1 random
 	METHOD m_uduxgasu attemptTasks ([Ljava/util/function/BooleanSupplier;)Z
 		ARG 0 tasks
+	METHOD m_uelhoqqv (Ljava/lang/Object;)Z
+		ARG 0 object
 	METHOD m_uocsgxgb logAndPause (Ljava/lang/String;)V
 		ARG 0 message
 	METHOD m_vcjnmiex previous (Ljava/lang/Iterable;Ljava/lang/Object;)Ljava/lang/Object;
@@ -212,6 +235,9 @@ CLASS net/minecraft/unmapped/C_lvarvugc net/minecraft/util/Util
 	METHOD m_wznbpzed copyShuffled (Lit/unimi/dsi/fastutil/objects/ObjectArrayList;Lnet/minecraft/unmapped/C_rlomrsco;)Ljava/util/List;
 		ARG 0 values
 		ARG 1 random
+	METHOD m_xjiphzqy (Ljava/util/List;Ljava/util/function/Consumer;)Ljava/util/concurrent/CompletableFuture;
+		ARG 0 futures
+	METHOD m_xkundsnc copyAndPrepend (Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;
 	METHOD m_xtrebjef getMeasuringTimeNano ()J
 	METHOD m_ydhyxwlc relativeCopy (Ljava/nio/file/Path;Ljava/nio/file/Path;Ljava/nio/file/Path;)V
 		COMMENT Copies a file contained in the folder {@code src} to the folder {@code dest}.
@@ -229,6 +255,8 @@ CLASS net/minecraft/unmapped/C_lvarvugc net/minecraft/util/Util
 	METHOD m_zxlwmobp getRandom ([Ljava/lang/Object;Lnet/minecraft/unmapped/C_rlomrsco;)Ljava/lang/Object;
 		ARG 0 array
 		ARG 1 random
+	METHOD m_zzvorlze allOf (Ljava/util/List;)Ljava/util/function/Predicate;
+		ARG 0 predicates
 	CLASS C_cyqlwwzq
 		METHOD run run ()V
 	CLASS C_etnademe
@@ -238,6 +266,8 @@ CLASS net/minecraft/unmapped/C_lvarvugc net/minecraft/util/Util
 		METHOD <init> (Ljava/lang/String;ILjava/lang/String;)V
 			ARG 3 name
 		METHOD m_cpefuxuc getName ()Ljava/lang/String;
+		METHOD m_efpifgzp (Ljava/nio/file/Path;)V
+			ARG 1 path
 		METHOD m_sgnbfxds open (Ljava/net/URI;)V
 			ARG 1 uri
 		METHOD m_ukwepfnn open (Ljava/lang/String;)V
